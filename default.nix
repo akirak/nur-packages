@@ -8,6 +8,13 @@
 
 { pkgs ? import <nixpkgs> {} }:
 
+let
+  srcOnlyFromNiv = drvName: srcName: pkgs.srcOnly {
+    name = drvName;
+    src = fetchTarball (import ./nix/sources.nix).${srcName}.url;
+  };
+in
+
 {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
@@ -15,7 +22,16 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   example-package = pkgs.callPackage ./pkgs/example-package { };
-  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
-}
 
+  # zsh plugins
+  zsh-enhancd = pkgs.callPackage ./pkgs/zsh-enhancd { };
+
+  # Just export the source repositories
+  zsh-pure-prompt = srcOnlyFromNiv "zsh-pure-prompt" "pure";
+  zsh-fzy = srcOnlyFromNiv "zsh-fzy" "zsh-fzy";
+  zsh-fast-syntax-highlighting =
+    srcOnlyFromNiv "zsh-fast-syntax-highlighting" "fast-syntax-highlighting";
+  zsh-nix-shell = srcOnlyFromNiv "zsh-nix-shell" "zsh-nix-shell";
+  zsh-colored-man-pages =
+    srcOnlyFromNiv "zsh-colored-man-pages" "colored-man-pages";
+}
