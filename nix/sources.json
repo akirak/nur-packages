@@ -1,0 +1,86 @@
+{
+    "colored-man-pages": {
+        "branch": "master",
+        "description": "Oh-My-Zsh colored-man-pages plugin",
+        "homepage": null,
+        "owner": "hsienjan",
+        "repo": "colored-man-pages",
+        "rev": "3612621505ae49bf2c1a8c1f631aee78d26785c7",
+        "sha256": "0dhr7jf5bhginry4vg82a9sc2f1f02x464dzr6gl3b3fq940yxni",
+        "type": "tarball",
+        "url": "https://github.com/hsienjan/colored-man-pages/archive/3612621505ae49bf2c1a8c1f631aee78d26785c7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "enhancd": {
+        "branch": "master",
+        "description": ":rocket: A next-generation cd command with your interactive filter",
+        "homepage": "",
+        "owner": "b4b4r07",
+        "repo": "enhancd",
+        "rev": "f0f894029d12eecdc36c212fa3ad14f55468d1b7",
+        "sha256": "1qk2fa33jn4j3xxaljmm11d6rbng6d5gglrhwavb72jib4vmkwyb",
+        "type": "tarball",
+        "url": "https://github.com/b4b4r07/enhancd/archive/f0f894029d12eecdc36c212fa3ad14f55468d1b7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "fast-syntax-highlighting": {
+        "branch": "master",
+        "description": "(Short name F-Sy-H). Syntax-highlighting for Zshell – fine granularity, number of features, 40 work hours themes",
+        "homepage": "http://zdharma.org",
+        "owner": "zdharma",
+        "repo": "fast-syntax-highlighting",
+        "rev": "a47b5088636c3678c7baa22710d10b0c45bc9265",
+        "sha256": "00d6nssh73k26w69fdp8iff1xghyr8ziy5w5a2li0z9lvm6j0nik",
+        "type": "tarball",
+        "url": "https://github.com/zdharma/fast-syntax-highlighting/archive/a47b5088636c3678c7baa22710d10b0c45bc9265.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "9d35b9e4837ab88517210b1701127612c260eccf",
+        "sha256": "0q50xhnm8g2yfyakrh0nly4swyygxpi0a8cb9gp65wcakcgvzvdh",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/9d35b9e4837ab88517210b1701127612c260eccf.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "pure": {
+        "branch": "master",
+        "description": "Pretty, minimal and fast ZSH prompt",
+        "homepage": "",
+        "owner": "sindresorhus",
+        "repo": "pure",
+        "rev": "dfc8062c64df8821eaec7d741c75f3cee20d37e3",
+        "sha256": "0nylqkag4isa22z130z9pbvjakwqf047q8qgzkwbwjhfqh9fp1sv",
+        "type": "tarball",
+        "url": "https://github.com/sindresorhus/pure/archive/dfc8062c64df8821eaec7d741c75f3cee20d37e3.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-fzy": {
+        "branch": "master",
+        "description": "Use the fzy fuzzy-finder in Zsh",
+        "homepage": null,
+        "owner": "aperezdc",
+        "repo": "zsh-fzy",
+        "rev": "923364fabf5e8731f2f0d02c66946a7b6a4c3b13",
+        "sha256": "15kc5qcwfmi8p1nyykmnjp32lz8zn1ji8w6aly1pfcg0l62wm26q",
+        "type": "tarball",
+        "url": "https://github.com/aperezdc/zsh-fzy/archive/923364fabf5e8731f2f0d02c66946a7b6a4c3b13.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-nix-shell": {
+        "branch": "master",
+        "description": "zsh plugin that lets you use zsh in nix-shell shell.",
+        "homepage": "",
+        "owner": "chisui",
+        "repo": "zsh-nix-shell",
+        "rev": "5dc081265cdd0d03631e9dc20b5e656530ae3af2",
+        "sha256": "10y3jylx271j01i10vpqqz2ph4njbcyy34fnkn8ps39i9lfb7vhb",
+        "type": "tarball",
+        "url": "https://github.com/chisui/zsh-nix-shell/archive/5dc081265cdd0d03631e9dc20b5e656530ae3af2.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
