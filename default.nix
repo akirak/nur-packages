@@ -22,8 +22,6 @@ in
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
-
   # zsh plugins
   zsh-enhancd = pkgs.callPackage ./pkgs/zsh-enhancd {
     src = nivSrc "enhancd";
