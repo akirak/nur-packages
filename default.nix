@@ -36,4 +36,7 @@ in
   zsh-nix-shell = srcOnlyFromNiv "zsh-nix-shell" "zsh-nix-shell";
   zsh-colored-man-pages =
     srcOnlyFromNiv "zsh-colored-man-pages" "colored-man-pages";
+
+  myrepos = callPackageWithNivSrc ./pkgs/myrepos "myrepos" { };
+
 }

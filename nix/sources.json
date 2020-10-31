@@ -35,6 +35,16 @@
         "url": "https://github.com/zdharma/fast-syntax-highlighting/archive/a47b5088636c3678c7baa22710d10b0c45bc9265.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "myrepos": {
+        "ref": "master",
+        "repo": "https://git.joeyh.name/index.cgi/myrepos.git",
+        "rev": "397599ed67c3c678f748ff0a8676eae8c2b60bf4",
+        "sha256": "0jphw61plm8cgklja6hs639xhdvxgvjwbr6jpvjwpp7hc5gmhms5",
+        "type": "tarball",
+        "url": "https://git.joeyh.name/index.cgi/myrepos.git/snapshot/myrepos-1.20180726.tar.gz",
+        "url_template": "https://git.joeyh.name/index.cgi/myrepos.git/snapshot/myrepos-<version>.tar.gz",
+        "version": "1.20180726"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
