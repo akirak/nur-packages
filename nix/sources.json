@@ -1,4 +1,16 @@
 {
+    "bashcaster": {
+        "branch": "master",
+        "description": "An actually simple screen recorder for Linux",
+        "homepage": null,
+        "owner": "alphapapa",
+        "repo": "bashcaster",
+        "rev": "5c27de9b7f40ddb724dbfc52543d85c4a1f6c1dc",
+        "sha256": "0nap99qms5d1j0ny0ba5d49y4rvvyyxi959w5q7d704s507h10kn",
+        "type": "tarball",
+        "url": "https://github.com/alphapapa/bashcaster/archive/5c27de9b7f40ddb724dbfc52543d85c4a1f6c1dc.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "colored-man-pages": {
         "branch": "master",
         "description": "Oh-My-Zsh colored-man-pages plugin",

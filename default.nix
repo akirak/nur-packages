@@ -36,5 +36,8 @@ in
     srcOnlyFromNiv "zsh-colored-man-pages" "colored-man-pages";
 
   myrepos = callPackageWithNivSrc ./pkgs/myrepos "myrepos" { };
+  bashcaster = callPackageWithNivSrc ./pkgs/bashcaster "bashcaster" {
+    inherit (pkgs.xorg) xprop xwininfo;
+  };
 
 }
