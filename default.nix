@@ -14,6 +14,9 @@ let
     name = drvName;
     src = fetchTarball (import ./nix/sources.nix).${srcName}.url;
   };
+  callPackageWithNivSrc = file: srcName: attrs: pkgs.callPackage file ({
+    src = nivSrc srcName;
+  } // attrs);
 in
 
 {
@@ -23,9 +26,7 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   # zsh plugins
-  zsh-enhancd = pkgs.callPackage ./pkgs/zsh-enhancd {
-    src = nivSrc "enhancd";
-  };
+  zsh-enhancd = callPackageWithNivSrc ./pkgs/zsh-enhancd "enhancd" { };
 
   # Just export the source repositories
   zsh-pure-prompt = srcOnlyFromNiv "zsh-pure-prompt" "pure";
