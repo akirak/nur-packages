@@ -6,19 +6,17 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> {} }:
-
+{ pkgs ? import <nixpkgs> { } }:
 let
   nivSrc = srcName: fetchTarball (import ./nix/sources.nix).${srcName}.url;
-  srcOnlyFromNiv = drvName: srcName: pkgs.srcOnly {
-    name = drvName;
+  srcOnlyFromNiv = name: srcName: pkgs.srcOnly {
+    inherit name;
     src = fetchTarball (import ./nix/sources.nix).${srcName}.url;
   };
   callPackageWithNivSrc = file: srcName: attrs: pkgs.callPackage file ({
     src = nivSrc srcName;
   } // attrs);
 in
-
 {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
