@@ -6,16 +6,17 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> {} }:
-
+{ pkgs ? import <nixpkgs> { } }:
 let
   nivSrc = srcName: fetchTarball (import ./nix/sources.nix).${srcName}.url;
-  srcOnlyFromNiv = drvName: srcName: pkgs.srcOnly {
-    name = drvName;
+  srcOnlyFromNiv = name: srcName: pkgs.srcOnly {
+    inherit name;
     src = fetchTarball (import ./nix/sources.nix).${srcName}.url;
   };
+  callPackageWithNivSrc = file: srcName: attrs: pkgs.callPackage file ({
+    src = nivSrc srcName;
+  } // attrs);
 in
-
 {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
@@ -23,9 +24,7 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   # zsh plugins
-  zsh-enhancd = pkgs.callPackage ./pkgs/zsh-enhancd {
-    src = nivSrc "enhancd";
-  };
+  zsh-enhancd = callPackageWithNivSrc ./pkgs/zsh-enhancd "enhancd" { };
 
   # Just export the source repositories
   zsh-pure-prompt = srcOnlyFromNiv "zsh-pure-prompt" "pure";
@@ -35,4 +34,10 @@ in
   zsh-nix-shell = srcOnlyFromNiv "zsh-nix-shell" "zsh-nix-shell";
   zsh-colored-man-pages =
     srcOnlyFromNiv "zsh-colored-man-pages" "colored-man-pages";
+
+  myrepos = callPackageWithNivSrc ./pkgs/myrepos "myrepos" { };
+  bashcaster = callPackageWithNivSrc ./pkgs/bashcaster "bashcaster" {
+    inherit (pkgs.xorg) xprop xwininfo;
+  };
+
 }
