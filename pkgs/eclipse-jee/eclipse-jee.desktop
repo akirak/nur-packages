@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Eclipse IDE for Enterprise Java Developers
+TryExec=eclipse
+Exec=eclipse-jee
+Icon=icon.xpm
+Type=Application
+Terminal=false
+DBusActivatable=false
+StartupWMClass=Eclipse
