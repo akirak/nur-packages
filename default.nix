@@ -42,18 +42,23 @@ in
 
   eclipse-jee =
     let
-      release = "2020-09";
-      # TODO: Choose a different value depending on the system
-      platform = "linux-gtk-x86_64";
       # TODO: Allow choosing a different site
       site = "https://ftp.jaist.ac.jp/pub";
-      url = "${site}/eclipse/technology/epp/downloads/release/${release}/R/eclipse-jee-${release}-R-${platform}.tar.gz";
-      src = fetchTarball {
-        inherit url;
-        sha256 = "0563va51n9bf4bz2p57hj5ghs02pxgacikpzxcbnnnw78m6sb2rs";
+      mkUrl = { release, platform }: "${site}/eclipse/technology/epp/downloads/release/${release}/R/eclipse-jee-${release}-R-${platform}.tar.gz";
+      srcForPlatform = { release, platform, sha256 }: fetchTarball {
+        url = mkUrl { inherit release platform; };
+        inherit sha256;
       };
     in
-    pkgs.callPackage ./pkgs/eclipse-jee {
-      inherit src;
-    };
+    if builtins.currentSystem == "x86_64-linux"
+    then
+      pkgs.callPackage ./pkgs/eclipse-jee
+        {
+          src = srcForPlatform {
+            release = "2020-09";
+            platform = "linux-gtk-x86_64";
+            sha256 = "0563va51n9bf4bz2p57hj5ghs02pxgacikpzxcbnnnw78m6sb2rs";
+          };
+        }
+    else throw "Unsupported system";
 }
