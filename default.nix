@@ -53,9 +53,10 @@ in
     if builtins.currentSystem == "x86_64-linux"
     then
       pkgs.callPackage ./pkgs/eclipse-jee
-        {
+        rec {
+          release = "2020-09";
           src = srcForPlatform {
-            release = "2020-09";
+            inherit release;
             platform = "linux-gtk-x86_64";
             sha256 = "0563va51n9bf4bz2p57hj5ghs02pxgacikpzxcbnnnw78m6sb2rs";
           };

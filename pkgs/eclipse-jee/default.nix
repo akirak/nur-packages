@@ -1,7 +1,8 @@
-{ runCommandNoCC, src, jdk11, makeWrapper }:
+{ runCommandNoCC, src, jdk11, makeWrapper, release }:
 runCommandNoCC "eclipse-jee"
 {
   inherit src;
+  version = release;
   buildInputs = [
     makeWrapper
   ];
