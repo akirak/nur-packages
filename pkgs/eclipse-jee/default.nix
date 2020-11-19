@@ -1,4 +1,4 @@
-{ runCommandNoCC, src, jdk11, makeWrapper, release }:
+{ runCommandNoCC, src, jdk8, makeWrapper, release }:
 runCommandNoCC "eclipse-jee"
 {
   inherit src;
@@ -8,7 +8,7 @@ runCommandNoCC "eclipse-jee"
   ];
   propagateBuildInputs = [
     src
-    jdk11
+    jdk8
   ];
   # prevent caching to save the storage since the distribution size
   # is large
@@ -21,7 +21,7 @@ runCommandNoCC "eclipse-jee"
     desktopFile=$out/share/applications/eclipse-jee.desktop
 
     makeWrapper $src/eclipse $bin \
-      --add-flags "-vm ${jdk11}/bin/java"
+      --add-flags "-vm ${jdk8}/bin/java"
 
     cp ${./eclipse-jee.desktop} $desktopFile
     substituteInPlace $desktopFile \
