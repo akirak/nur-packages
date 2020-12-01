@@ -53,7 +53,7 @@ fi
 branch="$(git symbolic-ref --short HEAD)"
 
 # Verify if there is the remote
-if [[ -z "$(git config --local --get remotes.origin.url)" ]]; then
+if ! git config --local --get remote.origin.url >/dev/null; then
   err "There is no remote named origin."
   exit 1
 fi
