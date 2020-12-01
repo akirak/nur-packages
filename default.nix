@@ -40,4 +40,6 @@ in
     inherit (pkgs.xorg) xprop xwininfo;
   };
 
+  git-safe-update = pkgs.callPackage ./pkgs/git-safe-update { };
+
 }
