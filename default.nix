@@ -56,4 +56,10 @@ in
     inherit (xorg) xserver xdpyinfo;
   };
 
+  hannari-mincho-font = pkgs.callPackage ./pkgs/hannari-mincho-font { };
+  adobe-chinese-font = pkgs.callPackage ./pkgs/adobe-chinese-font { };
+  go-mono-nerd-font = pkgs.callPackage ./pkgs/go-mono-nerd-font { };
+  tinos-nerd-font = pkgs.callPackage ./pkgs/tinos-nerd-font { };
+  hack-nerd-font = pkgs.callPackage ./pkgs/hack-nerd-font { };
+
 }
