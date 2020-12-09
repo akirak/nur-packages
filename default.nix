@@ -54,4 +54,41 @@ in
     };
   };
 
+  gitbatch = pkgs.callPackage ./pkgs/gitbatch rec {
+    version = "0.5.0";
+    src =
+      if builtins.currentSystem == "x86_64-linux"
+      then
+        builtins.fetchTarball
+          {
+            url = "https://github.com/isacikgoz/gitbatch/releases/download/v${version}/gitbatch_${version}_linux_amd64.tar.gz";
+            sha256 = "0dw34m7qlz8i64jmng8ia9mdrr7ggq92ppcq5il3xk18n5qamgyq";
+          }
+      else
+        throw "Unsupported system";
+  };
+
+  gif-progress = pkgs.callPackage ./pkgs/gif-progress {
+    version = "0";
+
+    src =
+      if builtins.currentSystem == "x86_64-linux"
+      then
+        builtins.fetchTarball
+          {
+            url = "https://github.com/nwtgck/gif-progress/releases/download/release-fix-not-moving-progress-bar/gif-progress-linux-amd64.tar.gz";
+            sha256 = "139zm9bbmnayn52myfjrshmg5wagzvghqxagv4g1b2dznjrxd4vn";
+            # date = 2019-12-31T04:50:01+0900;
+          }
+      else
+        throw "Unsupported system";
+
+    archive =
+      if builtins.currentSystem == "x86_64-linux"
+      then
+        "gif-progress-linux-amd64"
+      else
+        throw "Unsupported system";
+  };
+
 }
