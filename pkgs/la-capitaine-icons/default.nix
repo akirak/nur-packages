@@ -1,4 +1,4 @@
-{ src, fetchFromGitHub, runCommandNoCC, inkscape, gtk3, version ? "0.6.1" }:
+{ fetchFromGitHub, runCommandNoCC, inkscape, gtk3, version ? "0.6.1" }:
 runCommandNoCC "la-capitaine-icons-${version}"
 {
   src = fetchFromGitHub {
@@ -17,10 +17,11 @@ runCommandNoCC "la-capitaine-icons-${version}"
       for height in 32 48 64 96 128; do
         outdir=$out/share/icons/favorites/"$height"x"$height"/apps
         mkdir -p $outdir
-        inkscape -z --export-background-opacity=0 \
+        inkscape --export-background-opacity=0 \
+          --export-type=png \
           --export-height=$height \
-          --export-png=$outdir/$basename.png \
-          --file=$basename.svg
+          -o $outdir/$basename.png \
+          $basename.svg
       done
     done
   ''
