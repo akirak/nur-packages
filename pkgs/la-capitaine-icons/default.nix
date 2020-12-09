@@ -1,7 +1,13 @@
-{ src, runCommandNoCC, inkscape, gtk3, version ? "0.6.1" }:
+{ src, fetchFromGitHub, runCommandNoCC, inkscape, gtk3, version ? "0.6.1" }:
 runCommandNoCC "la-capitaine-icons-${version}"
 {
-  inherit src;
+  src = fetchFromGitHub {
+    owner = "keeferrourke";
+    repo = "la-capitaine-icon-theme";
+    rev = "0299ebbdbbc4cb7dea8508059f38a895c98027f7";
+    sha256 = "050w5jfj7dvix8jgb3zwvzh2aiy27i16x792cv13fpqqqgwkfpmf";
+    # date = 2019-07-13T15:37:21+00:00;
+  };
   buildInputs = [ inkscape ];
   nativeBuildInputs = [ gtk3 ];
 }

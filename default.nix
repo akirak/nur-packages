@@ -44,63 +44,13 @@ in
 
   nixGL = import (nivSrc "nixGL") { };
 
-  la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons {
-    src = pkgs.fetchFromGitHub {
-      owner = "keeferrourke";
-      repo = "la-capitaine-icon-theme";
-      rev = "0299ebbdbbc4cb7dea8508059f38a895c98027f7";
-      sha256 = "050w5jfj7dvix8jgb3zwvzh2aiy27i16x792cv13fpqqqgwkfpmf";
-      # date = 2019-07-13T15:37:21+00:00;
-    };
-  };
+  la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons { };
 
-  gitbatch = pkgs.callPackage ./pkgs/gitbatch rec {
-    version = "0.5.0";
-    src =
-      if builtins.currentSystem == "x86_64-linux"
-      then
-        builtins.fetchTarball
-          {
-            url = "https://github.com/isacikgoz/gitbatch/releases/download/v${version}/gitbatch_${version}_linux_amd64.tar.gz";
-            sha256 = "0dw34m7qlz8i64jmng8ia9mdrr7ggq92ppcq5il3xk18n5qamgyq";
-          }
-      else
-        throw "Unsupported system";
-  };
+  gitbatch = pkgs.callPackage ./pkgs/gitbatch { };
 
-  gif-progress = pkgs.callPackage ./pkgs/gif-progress {
-    version = "0";
+  gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
 
-    src =
-      if builtins.currentSystem == "x86_64-linux"
-      then
-        builtins.fetchTarball
-          {
-            url = "https://github.com/nwtgck/gif-progress/releases/download/release-fix-not-moving-progress-bar/gif-progress-linux-amd64.tar.gz";
-            sha256 = "139zm9bbmnayn52myfjrshmg5wagzvghqxagv4g1b2dznjrxd4vn";
-            # date = 2019-12-31T04:50:01+0900;
-          }
-      else
-        throw "Unsupported system";
-
-    archive =
-      if builtins.currentSystem == "x86_64-linux"
-      then
-        "gif-progress-linux-amd64"
-      else
-        throw "Unsupported system";
-  };
-
-  wsl-open = pkgs.callPackage ./pkgs/wsl-open {
-    version = "0";
-    src = pkgs.fetchFromGitHub {
-      owner = "4U6U57";
-      repo = "wsl-open";
-      rev = "9000402a2edddf353984a901fc7e8b4cd425e341";
-      sha256 = "0lj6isx7hp7kdj8rrpv5zffdpxi13mpjxmy4gbhmrq3hz5jl45b8";
-      # date = 2019-04-16T19:33:28-07:00;
-    };
-  };
+  wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
 
   xephyr-launcher = pkgs.callPackage ./pkgs/xephyr-launcher {
     inherit (xorg) xserver xdpyinfo;
