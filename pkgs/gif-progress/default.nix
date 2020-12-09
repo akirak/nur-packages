@@ -15,14 +15,8 @@ runCommandNoCC "gif-progress-release"
     else
       throw "Unsupported system";
 
-  archive =
-    if builtins.currentSystem == "x86_64-linux"
-    then
-      "gif-progress-linux-amd64"
-    else
-      throw "Unsupported system";
 }
   ''
     mkdir -p $out/bin
-    install -t $out/bin $src/$archive/gif-progress
+    install -t $out/bin $src/gif-progress
   ''
