@@ -16,5 +16,5 @@ rec {
 }
   ''
     mkdir -p $out/bin
-    install -t $out/bin $src/gitbatch
+    install -t $out/bin $src
   ''
