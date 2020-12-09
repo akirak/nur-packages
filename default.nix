@@ -42,4 +42,6 @@ in
 
   git-safe-update = pkgs.callPackage ./pkgs/git-safe-update { };
 
+  nixGL = import (nivSrc "nixGL") { };
+
 }
