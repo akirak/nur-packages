@@ -42,4 +42,32 @@ in
 
   git-safe-update = pkgs.callPackage ./pkgs/git-safe-update { };
 
+  nixGL = import (nivSrc "nixGL") { };
+
+  la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons { };
+
+  gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
+
+  wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
+
+  xephyr-launcher = pkgs.callPackage ./pkgs/xephyr-launcher {
+    inherit (pkgs.xorg) xorgserver xdpyinfo;
+  };
+
+  hannari-mincho-font = pkgs.callPackage ./pkgs/hannnari-mincho-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  adobe-chinese-font = pkgs.callPackage ./pkgs/adobe-chinese-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  go-mono-nerd-font = pkgs.callPackage ./pkgs/go-mono-nerd-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  tinos-nerd-font = pkgs.callPackage ./pkgs/tinos-nerd-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  hack-nerd-font = pkgs.callPackage ./pkgs/hack-nerd-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+
 }
