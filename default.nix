@@ -102,4 +102,8 @@ in
     };
   };
 
+  xephyr-launcher = pkgs.callPackage ./pkgs/xephyr-launcher {
+    inherit (xorg) xserver xdpyinfo;
+  };
+
 }
