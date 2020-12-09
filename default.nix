@@ -53,13 +53,23 @@ in
   wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
 
   xephyr-launcher = pkgs.callPackage ./pkgs/xephyr-launcher {
-    inherit (xorg) xserver xdpyinfo;
+    inherit (pkgs.xorg) xorgserver xdpyinfo;
   };
 
-  hannari-mincho-font = pkgs.callPackage ./pkgs/hannari-mincho-font { };
-  adobe-chinese-font = pkgs.callPackage ./pkgs/adobe-chinese-font { };
-  go-mono-nerd-font = pkgs.callPackage ./pkgs/go-mono-nerd-font { };
-  tinos-nerd-font = pkgs.callPackage ./pkgs/tinos-nerd-font { };
-  hack-nerd-font = pkgs.callPackage ./pkgs/hack-nerd-font { };
+  hannari-mincho-font = pkgs.callPackage ./pkgs/hannnari-mincho-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  adobe-chinese-font = pkgs.callPackage ./pkgs/adobe-chinese-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  go-mono-nerd-font = pkgs.callPackage ./pkgs/go-mono-nerd-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  tinos-nerd-font = pkgs.callPackage ./pkgs/tinos-nerd-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+  hack-nerd-font = pkgs.callPackage ./pkgs/hack-nerd-font {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
 
 }

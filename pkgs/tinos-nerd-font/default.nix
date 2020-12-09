@@ -1,4 +1,5 @@
 { mkDerivation
+, fetchurl
 , unzip
 }:
 mkDerivation rec {

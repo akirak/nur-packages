@@ -1,4 +1,4 @@
-{ mkDerivation, unzip }:
+{ fetchurl, mkDerivation, unzip }:
 mkDerivation rec {
   name = "hannari-mincho-font";
 
@@ -19,4 +19,4 @@ mkDerivation rec {
     mkdir -p $fontDir
     cp *.otf $fontDir
   '';
-};
+}

@@ -1,4 +1,4 @@
-{ unzip, mkDerivation }:
+{ fetchurl, unzip, mkDerivation }:
 mkDerivation rec {
   name = "hack-font";
 
