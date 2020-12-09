@@ -46,8 +46,6 @@ in
 
   la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons { };
 
-  gitbatch = pkgs.callPackage ./pkgs/gitbatch { };
-
   gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
 
   wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
