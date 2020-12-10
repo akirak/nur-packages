@@ -46,6 +46,10 @@ in
 
   la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons { };
 
+  super-tiny-icons = pkgs.callPackage ./pkgs/super-tiny-icons {
+    inherit (pkgs.stdenv) mkDerivation;
+  };
+
   gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
 
   wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
