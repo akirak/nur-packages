@@ -86,8 +86,10 @@ in
     elixir = pkgs.elixir_1_10;
   }).elixir-ls_1_10;
 
-  elixir-ls_1_11 = (pkgs.callPackage ./pkgs/elixir-ls {
-    elixir = pkgs.elixir_1_11;
-  }).elixir-ls_1_11;
+  # TODO: Include this package once Elixir 1.11 becomes available in the latest stable channel
+  #
+  # elixir-ls_1_11 = (pkgs.callPackage ./pkgs/elixir-ls {
+  #   elixir = pkgs.elixir_1_11;
+  # }).elixir-ls_1_11;
 
 }
