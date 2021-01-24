@@ -74,4 +74,20 @@ in
     erlang = pkgs.erlangR20;
   };
 
+  elixir-ls_1_8 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.elixir_1_8;
+  }).elixir-ls_1_8;
+
+  elixir-ls_1_9 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.elixir_1_9;
+  }).elixir-ls_1_9;
+
+  elixir-ls_1_10 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.elixir_1_10;
+  }).elixir-ls_1_10;
+
+  elixir-ls_1_11 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.elixir_1_11;
+  }).elixir-ls_1_11;
+
 }
