@@ -74,17 +74,17 @@ in
     erlang = pkgs.erlangR20;
   };
 
-  elixir-ls_1_8 = { elixir ? pkgs.elixir_1_8 }:
-    (pkgs.callPackage ./pkgs/elixir-ls {
-      inherit elixir;
-    }).elixir-ls_1_8;
+  # Use the same OTP version as what elixir-ls was built on.
+  elixir-ls_1_8 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.elixir_1_8;
+  }).elixir-ls_1_8;
 
-  elixir-ls_1_9 = { elixir ? pkgs.elixir_1_9 }: (pkgs.callPackage ./pkgs/elixir-ls {
-    inherit elixir;
+  elixir-ls_1_9 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.elixir_1_9;
   }).elixir-ls_1_9;
 
-  elixir-ls_1_10 = { elixir ? pkgs.elixir_1_10 }: (pkgs.callPackage ./pkgs/elixir-ls {
-    inherit elixir;
+  elixir-ls_1_10 = (pkgs.callPackage ./pkgs/elixir-ls {
+    elixir = pkgs.beam.packages.erlangR23.elixir_1_10;
   }).elixir-ls_1_10;
 
   # TODO: Include this package once Elixir 1.11 becomes available in the latest stable channel
