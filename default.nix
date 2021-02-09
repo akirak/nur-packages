@@ -74,6 +74,10 @@ in
     erlang = pkgs.erlangR20;
   };
 
+  elixir_1_6_erlangR21 = pkgs.callPackage ./pkgs/elixir/elixir_1_6 {
+    erlang = pkgs.erlangR21;
+  };
+
   # Use the same OTP version as what elixir-ls was built on.
   elixir-ls_1_8 = (pkgs.callPackage ./pkgs/elixir-ls {
     elixir = pkgs.elixir_1_8;
