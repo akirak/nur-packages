@@ -4,7 +4,8 @@ mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/qothr/cabinet/blob/master/hannari.zip?raw=true";
-    sha256 = "f9f7cb9c2711e04b8ad492af5d3ae11b948f1de7bec7896470b1728602010a4e";
+    sha256 = "0kha0418cwmif1j8kixywwfqz50vw4x5vbwjsj54pq0i4yfcpxzr";
+    # date = 2021-03-11T00:22:01+0900;
   };
 
   dontBuild = true;

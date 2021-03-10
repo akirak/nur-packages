@@ -4,9 +4,9 @@ runCommandNoCC "la-capitaine-icons-${version}"
   src = fetchFromGitHub {
     owner = "keeferrourke";
     repo = "la-capitaine-icon-theme";
-    rev = "0299ebbdbbc4cb7dea8508059f38a895c98027f7";
-    sha256 = "050w5jfj7dvix8jgb3zwvzh2aiy27i16x792cv13fpqqqgwkfpmf";
-    # date = 2019-07-13T15:37:21+00:00;
+    rev = "acedb4717717b81c4827753dc55958c425dde24c";
+    sha256 = "1q8y06i0dqbnf5s21j7506pfgmwip724nlnd4ia7c429f4nxvq6h";
+    # date = 2021-03-06T00:34:04+00:00;
   };
   buildInputs = [ inkscape ];
   nativeBuildInputs = [ gtk3 ];
