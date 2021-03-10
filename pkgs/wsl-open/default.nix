@@ -4,9 +4,9 @@ runCommandNoCC "wsl-open-0"
   src = fetchFromGitHub {
     owner = "4U6U57";
     repo = "wsl-open";
-    rev = "9000402a2edddf353984a901fc7e8b4cd425e341";
-    sha256 = "0lj6isx7hp7kdj8rrpv5zffdpxi13mpjxmy4gbhmrq3hz5jl45b8";
-    # date = 2019-04-16T19:33:28-07:00;
+    rev = "6419bb63845acd0533f30bdc8258f8df5fbb25cb";
+    sha256 = "00d2f7cw5mqj6czidlc6xwih0id33kf9c94k8nis28k0fw6s8ska";
+    # date = 2021-01-20T04:46:45+00:00;
   };
 }
   ''

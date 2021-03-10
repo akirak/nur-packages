@@ -23,10 +23,8 @@ in
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  # zsh plugins
-  zsh-enhancd = callPackageWithNivSrc ./pkgs/zsh-enhancd "enhancd" { };
-
   # Just export the source repositories
+  zsh-enhancd = srcOnlyFromNiv "zsh-enhancd" "enhancd";
   zsh-pure-prompt = srcOnlyFromNiv "zsh-pure-prompt" "pure";
   zsh-fzy = srcOnlyFromNiv "zsh-fzy" "zsh-fzy";
   zsh-fast-syntax-highlighting =
