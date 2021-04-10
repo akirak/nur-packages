@@ -52,6 +52,10 @@ in
     inherit (pkgs.xorg) xorgserver xdpyinfo;
   };
 
+  linguist = pkgs.callPackageWithNivSrc ./pkgs/linguist "linguist" {
+    version = "v7.13.0";
+  };
+
   hannari-mincho-font = pkgs.callPackage ./pkgs/hannnari-mincho-font {
     inherit (pkgs.stdenv) mkDerivation;
   };

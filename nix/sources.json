@@ -59,6 +59,18 @@
         "url": "https://github.com/hercules-ci/gitignore.nix/archive/211907489e9f198594c0eb0ca9256a1949c9d412.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "linguist": {
+        "branch": "master",
+        "description": "Language Savant. If your repository's language is being reported incorrectly, send us a pull request!",
+        "homepage": "",
+        "owner": "github",
+        "repo": "linguist",
+        "rev": "cfafb37be4d23466e9c3e720c5ac8d88942ddffd",
+        "sha256": "1xxksdjn410qwiqqpwd71mznpb8nvn0z1by68i3034m6akj5lgbz",
+        "type": "tarball",
+        "url": "https://github.com/github/linguist/archive/cfafb37be4d23466e9c3e720c5ac8d88942ddffd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "myrepos": {
         "ref": "master",
         "repo": "https://git.joeyh.name/index.cgi/myrepos.git",
