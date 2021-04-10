@@ -46,9 +46,7 @@ in
 
   gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
 
-  readability-cli = (import ./pkgs/readability-cli {
-    inherit pkgs;
-  }).readability-cli;
+  readability-cli = pkgs.callPackage ./pkgs/readability-cli { };
 
   wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
 

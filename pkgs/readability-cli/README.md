@@ -1,5 +1,1 @@
-Run the following command to update the package derivation:
-
-```
-nix-shell -p nodePackages.node2nix --run 'node2nix -i npm-packages.json'
-```
+Run `make` in this directory to generate Nix files needed to build the package.
