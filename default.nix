@@ -46,6 +46,10 @@ in
 
   gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
 
+  readability-cli = (import ./pkgs/readability-cli {
+    inherit pkgs;
+  }).readability-cli;
+
   wsl-open = pkgs.callPackage ./pkgs/wsl-open { };
 
   xephyr-launcher = pkgs.callPackage ./pkgs/xephyr-launcher {

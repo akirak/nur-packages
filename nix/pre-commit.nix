@@ -6,7 +6,10 @@ let
 in
 nix-pre-commit-hooks.run {
   src = gitignore.gitignoreSource ./.;
-  excludes = [ "^nix/sources\.nix$" ];
+  excludes = [
+    "^nix/sources\.nix$"
+    "^pkgs/readability-cli/"
+  ];
   hooks = {
     nixpkgs-fmt.enable = true;
     nix-linter.enable = true;
