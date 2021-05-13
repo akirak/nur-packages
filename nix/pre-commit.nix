@@ -8,7 +8,7 @@ nix-pre-commit-hooks.run {
   src = gitignore.gitignoreSource ./.;
   excludes = [
     "^nix/sources\.nix$"
-    "^pkgs/readability-cli/"
+    "^pkgs/readability-cli/(composition|node-(env|packages))\.nix$"
   ];
   hooks = {
     nixpkgs-fmt.enable = true;
