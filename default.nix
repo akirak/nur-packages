@@ -5,10 +5,10 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-
-{ pkgs ? import <nixpkgs> { } }:
 let
-  nivSrc = srcName: fetchTarball (import ./nix/sources.nix).${srcName}.url;
+  sources = (import ./nix/sources.nix);
+  pkgs = import sources.nixpkgs { };
+  nivSrc = srcName: fetchTarball sources.${srcName}.url;
   srcOnlyFromNiv = name: srcName: pkgs.srcOnly {
     inherit name;
     src = fetchTarball (import ./nix/sources.nix).${srcName}.url;
