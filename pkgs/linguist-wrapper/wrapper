@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# Run GitHub Linguist via a Podman container
+# (c) 2021 Akira Komamura
+
+# Tag of the image
+tag=linguist-wrapper/linguist:latest
+
+# Cache directory
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/linguist-wrapper"
+
+# Local copy of the github-linguist. Must reside inside cache_dir
+repo="${cache_dir}/linguist"
+
+# Source repository of the github-linguist.
+origin=https://github.com/github/linguist.git
+
+# Return 0 if there is no image or the worktree is older than N days.
+is_outdated() {
+  local updated
+  local now
+  local pwd
+  entry=$(podman image ls --format=json "$tag" 2>/dev/null | jq '.[0]')
+  if [[ -z "$entry" ]]; then
+    return 0
+  else
+    now=$(date +%s)
+    # Retrieve the last modification time of the directory
+    updated=$(stat -c %Y "$repo")
+    test $((now - updated)) -gt $((86400 * 30))
+  fi
+}
+
+# Build an image of github-linguist and add a tag to it
+build_image() {
+  local pwd
+  pwd="$(pwd)"
+  if [[ -d "$repo" ]]; then
+    cd "$repo" || exit 1
+    git pull origin master >&2
+    git submodule update --depth 1 >&2
+  else
+    mkdir -p "${cache_dir}"
+    git clone --depth 1 --remote-submodules --shallow-submodules \
+        "$origin" "$repo" >&2
+    cd "$repo" || exit 1
+  fi
+
+  podman build -t "$tag" .
+  cd "$pwd" || exit 1
+}
+
+if [[ "$1" = update ]]; then
+  shift
+  build_image > /dev/null
+elif is_outdated; then
+  build_image > /dev/null
+fi
+
+# If the first argument is an existing directory, make it the workdir of the container
+if [[ $# -gt 0 ]] && [[ -d "$1" ]]; then
+  root=$(readlink -f "$1")
+  cwd="$root"
+  shift
+else
+  root=$(git rev-parse --show-toplevel)
+  cwd=$(readlink -f "$(pwd)")
+fi
+
+exec podman run --rm -v "$root:$root" -w "$cwd" "localhost/$tag" github-linguist "$@"

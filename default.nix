@@ -41,6 +41,8 @@ in
 
   git-safe-update = pkgs.callPackage ./pkgs/git-safe-update { };
 
+  linguist-wrapper = pkgs.callPackage ./pkgs/linguist-wrapper { };
+
   nixGL = import (nivSrc "nixGL") { };
 
   la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons { };
