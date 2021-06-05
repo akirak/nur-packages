@@ -42,6 +42,14 @@ in
   git-safe-update = pkgs.callPackage ./pkgs/git-safe-update { };
 
   linguist-wrapper = pkgs.callPackage ./pkgs/linguist-wrapper { };
+  # The same as above
+  linguist-wrapper-podman = pkgs.callPackage ./pkgs/linguist-wrapper {
+    useDocker = false;
+  };
+  # Use Docker to build an image and run a container
+  linguist-wrapper-docker = pkgs.callPackage ./pkgs/linguist-wrapper {
+    useDocker = true;
+  };
 
   nixGL = import (nivSrc "nixGL") { };
 
