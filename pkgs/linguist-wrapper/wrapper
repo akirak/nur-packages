@@ -15,18 +15,15 @@ repo="${cache_dir}/linguist"
 # Source repository of the github-linguist.
 origin=https://github.com/github/linguist.git
 
-# Executable of the docker/podman program
-DOCKER_BIN=${LINGUIST_WRAPPER_CONTAINER_PROGRAM:-docker}
-
-# Prefix prepended to the image tag when docker/podman run is called
-IMAGE_TAG_PREFIX=${LINGUIST_WRAPPER_IMAGE_TAG_PREFIX}
+DOCKER_BIN=podman
 
 # Return 0 if there is no image or the worktree is older than N days.
 is_outdated() {
   local updated
   local now
   local pwd
-  entry=$(podman image ls --format=json "$tag" 2>/dev/null | jq '.[0]')
+  # To be substituted at build time
+  entry=$(image-entry-command)
   if [[ -z "$entry" ]]; then
     return 0
   else
@@ -52,7 +49,7 @@ build_image() {
     cd "$repo" || exit 1
   fi
 
-  "${DOCKER_BIN}" build -t "$tag" .
+  ${DOCKER_BIN} build -t "$tag" .
   cd "$pwd" || exit 1
 }
 
@@ -74,5 +71,5 @@ else
   cwd=$(readlink -f "$(pwd)")
 fi
 
-exec "${DOCKER_BIN}" run --rm -v "$root:$root" -w "$cwd" \
-     "${IMAGE_TAG_PREFIX}$tag" github-linguist "$@"
+exec ${DOCKER_BIN} run --rm -v "$root:$root" -w "$cwd" "localhost/$tag" \
+     github-linguist "$@"
