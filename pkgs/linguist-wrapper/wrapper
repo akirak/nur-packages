@@ -4,7 +4,7 @@
 # (c) 2021 Akira Komamura
 
 # Tag of the image
-tag=linguist-wrapper/linguist:latest
+tag=linguist:latest
 
 # Cache directory
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/linguist-wrapper"
@@ -63,7 +63,8 @@ elif is_outdated; then
   build_image > /dev/null
 fi
 
-# If the first argument is an existing directory, make it the workdir of the container
+# If the first argument is an existing directory, make it the workdir
+# of the container
 if [[ $# -gt 0 ]] && [[ -d "$1" ]]; then
   root=$(readlink -f "$1")
   cwd="$root"
@@ -73,4 +74,5 @@ else
   cwd=$(readlink -f "$(pwd)")
 fi
 
-exec "${DOCKER_BIN}" run --rm -v "$root:$root" -w "$cwd" "${IMAGE_TAG_PREFIX}$tag" github-linguist "$@"
+exec "${DOCKER_BIN}" run --rm -v "$root:$root" -w "$cwd" \
+     "${IMAGE_TAG_PREFIX}$tag" github-linguist "$@"
