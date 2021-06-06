@@ -1,9 +1,7 @@
 { runCommandNoCC
 , makeWrapper
-, podman
 , jq
 , git
-, docker
 , useDocker ? false
 }:
 runCommandNoCC "linguist-wrapper"
@@ -12,7 +10,6 @@ runCommandNoCC "linguist-wrapper"
     makeWrapper
   ];
   propagatedBuildInputs = [
-    podman
     jq
     git
   ];
@@ -28,7 +25,6 @@ runCommandNoCC "linguist-wrapper"
       --set LINGUIST_WRAPPER_IMAGE_TAG_PREFIX ${if useDocker
                                                 then "''"
                                                 else "localhost/"} \
-      --prefix PATH : ${if useDocker then docker else podman}/bin \
       --prefix PATH : ${jq}/bin \
       --prefix PATH : ${git}/bin
   ''
