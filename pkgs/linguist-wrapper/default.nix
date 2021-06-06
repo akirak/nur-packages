@@ -22,8 +22,12 @@ runCommandNoCC "linguist-wrapper"
     cp ${./wrapper} $out/bin/linguist
     chmod +x $out/bin/linguist
     wrapProgram $out/bin/linguist \
-      --set LINGUIST_WRAPPER_CONTAINER_PROGRAM ${if useDocker then "docker" else "podman"} \
-      --set LINGUIST_WRAPPER_IMAGE_TAG_PREFIX ${if useDocker then "''" else "localhost/"} \
+      --set LINGUIST_WRAPPER_CONTAINER_PROGRAM ${if useDocker
+                                                 then "docker"
+                                                 else "podman"} \
+      --set LINGUIST_WRAPPER_IMAGE_TAG_PREFIX ${if useDocker
+                                                then "''"
+                                                else "localhost/"} \
       --prefix PATH : ${if useDocker then docker else podman}/bin \
       --prefix PATH : ${jq}/bin \
       --prefix PATH : ${git}/bin
