@@ -4,7 +4,7 @@
 # (c) 2021 Akira Komamura
 
 # Tag of the image
-tag=linguist-wrapper/linguist:latest
+tag=linguist:latest
 
 # Cache directory
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/linguist-wrapper"
