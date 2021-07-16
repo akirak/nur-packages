@@ -87,10 +87,10 @@
         "homepage": null,
         "owner": "guibou",
         "repo": "nixGL",
-        "rev": "7d6bc1b21316bab6cf4a6520c2639a11c25a220e",
-        "sha256": "02y38zmdplk7a9ihsxvnrzhhv7324mmf5g8hmxqizaid5k5ydpr3",
+        "rev": "44015623da7bb650060277596ce7ef42018c97d5",
+        "sha256": "002wffjvm45bld73wk7g716hm6i2h7bqrz3l6v5lzl6b84bssw1q",
         "type": "tarball",
-        "url": "https://github.com/guibou/nixGL/archive/7d6bc1b21316bab6cf4a6520c2639a11c25a220e.tar.gz",
+        "url": "https://github.com/guibou/nixGL/archive/44015623da7bb650060277596ce7ef42018c97d5.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
