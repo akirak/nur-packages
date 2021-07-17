@@ -147,10 +147,10 @@
         "homepage": "",
         "owner": "chisui",
         "repo": "zsh-nix-shell",
-        "rev": "b6ac21e77d6d8e48f6ac08842345c8c9cd3460d5",
-        "sha256": "166cgdfn53vq9bjg6589zwhiqayfymq8zvvrd94ps4sv78w3v3wn",
+        "rev": "a2139b32fc1429160fc40658c9e16177c20597fc",
+        "sha256": "0g1hz3469v9qlw0nnzcn07adrqm2x0d5vgh1yshk46ag4p3pwsbj",
         "type": "tarball",
-        "url": "https://github.com/chisui/zsh-nix-shell/archive/b6ac21e77d6d8e48f6ac08842345c8c9cd3460d5.tar.gz",
+        "url": "https://github.com/chisui/zsh-nix-shell/archive/a2139b32fc1429160fc40658c9e16177c20597fc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
