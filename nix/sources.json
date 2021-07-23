@@ -123,10 +123,10 @@
         "homepage": "",
         "owner": "sindresorhus",
         "repo": "pure",
-        "rev": "f4c6d79ba2417d63c8008b6acce628631fd462ec",
-        "sha256": "0qfs7rvpyd8jb7x4ziqrkh0b6g9ldds8sn6qbqgrir80vdk90gpa",
+        "rev": "2dff2eea66ff572df5a292fd12a573196eecab9a",
+        "sha256": "09j8y5i2mk8g0paas9rrbwkjls719bfpdmgpw6z4yq41fhgiq35y",
         "type": "tarball",
-        "url": "https://github.com/sindresorhus/pure/archive/f4c6d79ba2417d63c8008b6acce628631fd462ec.tar.gz",
+        "url": "https://github.com/sindresorhus/pure/archive/2dff2eea66ff572df5a292fd12a573196eecab9a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-fzy": {
