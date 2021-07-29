@@ -81,10 +81,6 @@ in
     inherit (pkgs.stdenv) mkDerivation;
   };
 
-  elixir_1_6_erlangR20 = pkgs.callPackage ./pkgs/elixir/elixir_1_6 {
-    erlang = pkgs.erlangR20;
-  };
-
   elixir_1_6_erlangR21 = pkgs.callPackage ./pkgs/elixir/elixir_1_6 {
     erlang = pkgs.erlangR21;
   };
