@@ -1,10 +1,10 @@
-name: Update dependencies
+name: Update nixpkgs
 on:
   schedule:
-    - cron:  '0 20 * * 3'
+    - cron:  '0 20 3 * *'
 jobs:
   niv-updater:
-    name: 'Create PRs for niv-managed dependencies'
+    name: 'Create PRs for updating nixpkgs'
     runs-on: ubuntu-latest
     steps:
       - name: niv-updater-action
