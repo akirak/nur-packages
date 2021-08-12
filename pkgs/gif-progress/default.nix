@@ -1,11 +1,12 @@
 { runCommandNoCC
+, system ? builtins.currentSystem
 }:
 runCommandNoCC "gif-progress-release"
 {
   version = "0";
 
   src =
-    if builtins.currentSystem == "x86_64-linux"
+    if system == "x86_64-linux"
     then
       builtins.fetchTarball
         {

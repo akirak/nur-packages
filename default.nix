@@ -9,10 +9,14 @@
 let
   sources = (import ./nix/sources.nix);
   pkgs = import sources.nixpkgs { inherit system; };
-  nivSrc = srcName: fetchTarball sources.${srcName}.url;
+  nivSrc = srcName: fetchTarball {
+    inherit (sources.${srcName}) url sha256;
+  };
   srcOnlyFromNiv = name: srcName: pkgs.srcOnly {
     inherit name;
-    src = fetchTarball (import ./nix/sources.nix).${srcName}.url;
+    src = fetchTarball {
+      inherit ((import ./nix/sources.nix).${srcName}) url sha256;
+    };
   };
   callPackageWithNivSrc = file: srcName: attrs: pkgs.callPackage file ({
     src = nivSrc srcName;
@@ -51,11 +55,11 @@ in
     useDocker = true;
   };
 
-  nixGL = import (nivSrc "nixGL") { };
-
   la-capitaine-icons = pkgs.callPackage ./pkgs/la-capitaine-icons { };
 
-  gif-progress = pkgs.callPackage ./pkgs/gif-progress { };
+  gif-progress = pkgs.callPackage ./pkgs/gif-progress {
+    inherit system;
+  };
 
   readability-cli = pkgs.callPackage ./pkgs/readability-cli { };
 
